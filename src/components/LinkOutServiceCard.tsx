@@ -6,7 +6,7 @@ export function LinkOutServiceCard({ result }: { result: ServiceSearchResult }) 
     <div className="rounded-lg border border-dashed border-gray-300 bg-gray-50 p-4 flex flex-col gap-3">
       <div className="font-semibold">{service.name}</div>
       <p className="text-xs text-gray-500">
-        {service.deliveryArea} · {service.notes}
+        {service.deliveryArea} · {service.deliveryFee}
       </p>
       <a
         href={linkOutUrl ?? service.homepage}

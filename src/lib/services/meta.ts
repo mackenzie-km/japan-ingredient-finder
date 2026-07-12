@@ -7,7 +7,7 @@ export const SERVICE_META: Record<ServiceId, ServiceMeta> = {
     kind: "data",
     homepage: "https://www.themeatguy.jp",
     deliveryArea: "Ships nationwide within Japan",
-    notes: "Specialty imported meat retailer (Shopify storefront).",
+    deliveryFee: "¥980–1,750 depending on region, free over ¥10,000",
   },
   tengunaturalfoods: {
     id: "tengunaturalfoods",
@@ -15,8 +15,7 @@ export const SERVICE_META: Record<ServiceId, ServiceMeta> = {
     kind: "data",
     homepage: "https://store.alishan.jp",
     deliveryArea: "Ships nationwide within Japan",
-    notes:
-      "Organic/health-food importer (Shopify storefront); catalog leans toward pantry staples, nut butters, baking substitutes.",
+    deliveryFee: "¥660–1,100 depending on region, free over ¥5,250",
   },
   halalfoodjp: {
     id: "halalfoodjp",
@@ -24,24 +23,23 @@ export const SERVICE_META: Record<ServiceId, ServiceMeta> = {
     kind: "data",
     homepage: "https://halalfoodjp.com",
     deliveryArea: "Ships nationwide within Japan",
-    notes: "Halal-certified grocery importer (WooCommerce storefront).",
+    deliveryFee: "Fee not published; free over ¥10,000 (¥20,000 for Hokkaido/Okinawa)",
   },
   nationalazabu: {
     id: "nationalazabu",
     name: "National Azabu",
     kind: "data",
     homepage: "https://national-azabu.net",
-    deliveryArea: "Ships nationwide within Japan; based in Tokyo (Azabu)",
-    notes: "Long-established Tokyo import grocer.",
+    deliveryArea: "Ships nationwide within Japan",
+    deliveryFee: "¥550, free over ¥5,000",
   },
   kaldi: {
     id: "kaldi",
     name: "Kaldi Coffee Farm",
     kind: "data",
     homepage: "https://www.kaldi.co.jp",
-    deliveryArea: "Nationwide — large physical retail chain plus online store",
-    notes:
-      "General imported-grocery chain; live search parsing is best-effort for this build.",
+    deliveryArea: "Ships nationwide within Japan",
+    deliveryFee: "¥880, free over ¥7,000 (room-temperature items)",
   },
   iherb: {
     id: "iherb",
@@ -49,8 +47,7 @@ export const SERVICE_META: Record<ServiceId, ServiceMeta> = {
     kind: "link-out",
     homepage: "https://jp.iherb.com",
     deliveryArea: "Ships nationwide within Japan",
-    notes:
-      "Blocks automated (non-browser) requests with bot detection — confirmed HTTP 403 on every server-side fetch attempt. Link-out only.",
+    deliveryFee: "¥500, free over ¥6,000",
   },
   amazonfresh: {
     id: "amazonfresh",
@@ -58,8 +55,7 @@ export const SERVICE_META: Record<ServiceId, ServiceMeta> = {
     kind: "link-out",
     homepage: "https://www.amazon.co.jp",
     deliveryArea: "Tokyo, Kanagawa, Chiba, and parts of Saitama only",
-    notes:
-      "Grocery delivery service; pricing not shown here, link out to check directly.",
+    deliveryFee: "¥490 (Prime) / ¥690, free over ¥10,000",
   },
   amazonjp: {
     id: "amazonjp",
@@ -67,7 +63,7 @@ export const SERVICE_META: Record<ServiceId, ServiceMeta> = {
     kind: "link-out",
     homepage: "https://www.amazon.co.jp",
     deliveryArea: "Ships nationwide within Japan",
-    notes: "General marketplace; imported goods often sold by third-party sellers.",
+    deliveryFee: "Free over ¥3,500 (¥460+ otherwise); free always with Prime",
   },
   ubereats: {
     id: "ubereats",
@@ -75,6 +71,6 @@ export const SERVICE_META: Record<ServiceId, ServiceMeta> = {
     kind: "link-out",
     homepage: "https://www.ubereats.com/jp",
     deliveryArea: "Varies by store/area availability",
-    notes: "Requires store/area context; no query deep-link available, links to JP homepage.",
+    deliveryFee: "Varies by store/area",
   },
 };

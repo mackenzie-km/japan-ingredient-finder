@@ -52,7 +52,7 @@ export function DataServiceCard({ result }: { result: ServiceSearchResult }) {
       )}
 
       <p className="text-xs text-gray-400 mt-auto">
-        {service.deliveryArea} · {service.notes}
+        {service.deliveryArea} · {service.deliveryFee}
       </p>
     </div>
   );
