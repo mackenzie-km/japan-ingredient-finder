@@ -9,4 +9,13 @@ export const SERVICE_META: Record<ServiceId, ServiceMeta> = {
     deliveryArea: "Ships nationwide within Japan",
     notes: "Specialty imported meat retailer (Shopify storefront).",
   },
+  tengunaturalfoods: {
+    id: "tengunaturalfoods",
+    name: "Tengu Natural Foods",
+    kind: "data",
+    homepage: "https://store.alishan.jp",
+    deliveryArea: "Ships nationwide within Japan",
+    notes:
+      "Organic/health-food importer (Shopify storefront); catalog leans toward pantry staples, nut butters, baking substitutes.",
+  },
 };
