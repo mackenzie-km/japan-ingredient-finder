@@ -24,7 +24,7 @@ export function SearchBar({
         value={value}
         onChange={(e) => setValue(e.target.value)}
         placeholder="Search an ingredient or brand, e.g. peanut butter"
-        className="flex-1 rounded-full border border-amber-200 dark:border-amber-900/40 bg-amber-50/50 dark:bg-black/20 text-gray-900 dark:text-gray-100 placeholder:text-gray-400 dark:placeholder:text-gray-500 px-4 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-amber-400"
+        className="flex-1 rounded-full border border-amber-200 dark:border-amber-800/50 bg-amber-50/50 dark:bg-[#241a12] text-gray-900 dark:text-gray-100 placeholder:text-gray-400 dark:placeholder:text-gray-500 px-4 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-amber-400"
       />
       <button
         type="submit"

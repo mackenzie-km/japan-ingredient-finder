@@ -8,7 +8,7 @@ export default function Home() {
           🇯🇵 Ingredient Finder
         </h1>
 
-        <div className="w-full rounded-3xl bg-white dark:bg-[#2a2118] shadow-lg shadow-black/5 dark:shadow-black/30 px-6 py-10 sm:px-10 flex flex-col items-center gap-6">
+        <div className="w-full rounded-3xl bg-white dark:bg-[#332820] shadow-lg shadow-black/5 dark:shadow-black/40 px-6 py-10 sm:px-10 flex flex-col items-center gap-6">
           <div className="text-center">
             <h2 className="text-xl font-semibold text-zinc-900 dark:text-zinc-50">
               What are you looking for?

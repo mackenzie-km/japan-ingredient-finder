@@ -4,7 +4,7 @@ import type { ServiceSearchResult } from "@/lib/services/types";
 export function DataServiceCard({ result }: { result: ServiceSearchResult }) {
   const { service, status, products, error } = result;
   return (
-    <div className="rounded-2xl border border-amber-100 dark:border-amber-900/30 bg-white dark:bg-[#2a2118] shadow-sm p-4 flex flex-col gap-3">
+    <div className="rounded-2xl border border-amber-100 dark:border-amber-800/40 bg-white dark:bg-[#332820] shadow-sm p-4 flex flex-col gap-3">
       <div className="flex items-center justify-between gap-2">
         <a
           href={service.homepage}

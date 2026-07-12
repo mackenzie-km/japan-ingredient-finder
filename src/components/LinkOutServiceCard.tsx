@@ -3,7 +3,7 @@ import type { ServiceSearchResult } from "@/lib/services/types";
 export function LinkOutServiceCard({ result }: { result: ServiceSearchResult }) {
   const { service, linkOutUrl } = result;
   return (
-    <div className="rounded-2xl border border-dashed border-amber-300 dark:border-amber-800/50 bg-amber-50/40 dark:bg-black/20 shadow-sm p-4 flex flex-col gap-3">
+    <div className="rounded-2xl border border-dashed border-amber-300 dark:border-amber-800/50 bg-amber-50/40 dark:bg-[#241a12] shadow-sm p-4 flex flex-col gap-3">
       <div className="font-semibold text-zinc-900 dark:text-zinc-50">{service.name}</div>
       <p className="text-xs text-gray-500 dark:text-gray-400">
         {service.deliveryArea} · {service.deliveryFee}
