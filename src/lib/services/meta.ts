@@ -26,4 +26,12 @@ export const SERVICE_META: Record<ServiceId, ServiceMeta> = {
     deliveryArea: "Ships nationwide within Japan",
     notes: "Halal-certified grocery importer (WooCommerce storefront).",
   },
+  nationalazabu: {
+    id: "nationalazabu",
+    name: "National Azabu",
+    kind: "data",
+    homepage: "https://national-azabu.net",
+    deliveryArea: "Ships nationwide within Japan; based in Tokyo (Azabu)",
+    notes: "Long-established Tokyo import grocer.",
+  },
 };

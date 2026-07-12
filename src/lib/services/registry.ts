@@ -1,5 +1,6 @@
 import { halalFoodJpAdapter } from "@/lib/services/adapters/halalfoodjp";
 import { meatGuyAdapter } from "@/lib/services/adapters/meatguy";
+import { nationalAzabuAdapter } from "@/lib/services/adapters/nationalazabu";
 import { tenguNaturalFoodsAdapter } from "@/lib/services/adapters/tengunaturalfoods";
 import type { ServiceAdapter } from "@/lib/services/types";
 
@@ -8,4 +9,5 @@ export const serviceAdapters: ServiceAdapter[] = [
   meatGuyAdapter,
   halalFoodJpAdapter,
   tenguNaturalFoodsAdapter,
+  nationalAzabuAdapter,
 ];
