@@ -28,7 +28,7 @@ export function SearchExperience() {
   return (
     <div className="flex flex-col gap-6 w-full max-w-5xl">
       <SearchBar onSearch={handleSearch} loading={loading} />
-      {error && <p className="text-sm text-red-600">{error}</p>}
+      {error && <p className="text-sm text-[#c0392b]">{error}</p>}
       {data && <ResultsView results={data.results} />}
     </div>
   );

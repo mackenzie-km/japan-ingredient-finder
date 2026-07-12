@@ -1,21 +1,17 @@
 import type { Metadata } from "next";
-import { Caveat, Geist, Geist_Mono } from "next/font/google";
+import { Nunito, Pacifico } from "next/font/google";
 import "./globals.css";
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
+const nunito = Nunito({
+  variable: "--font-sans",
   subsets: ["latin"],
+  weight: ["500", "600"],
 });
 
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
-  subsets: ["latin"],
-});
-
-const caveat = Caveat({
+const pacifico = Pacifico({
   variable: "--font-script",
   subsets: ["latin"],
-  weight: ["500", "700"],
+  weight: ["400"],
 });
 
 export const metadata: Metadata = {
@@ -31,7 +27,7 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${geistSans.variable} ${geistMono.variable} ${caveat.variable} h-full antialiased`}
+      className={`${nunito.variable} ${pacifico.variable} h-full antialiased`}
     >
       <body className="min-h-full flex flex-col">{children}</body>
     </html>

@@ -1,10 +1,10 @@
 import type { ServiceStatus } from "@/lib/services/types";
 
 const STYLES: Record<ServiceStatus, { label: string; className: string }> = {
-  ok: { label: "Results found", className: "bg-green-100 text-green-800" },
-  empty: { label: "No matches", className: "bg-gray-100 text-gray-600" },
-  error: { label: "Error", className: "bg-red-100 text-red-800" },
-  unavailable: { label: "Temporarily unavailable", className: "bg-yellow-100 text-yellow-800" },
+  ok: { label: "Results found", className: "bg-[#eaf5ec] text-[#2a7a3b]" },
+  empty: { label: "No matches", className: "bg-[#f0ebe6] text-muted-strong" },
+  error: { label: "Error", className: "bg-[#fce8e6] text-[#c0392b]" },
+  unavailable: { label: "Temporarily unavailable", className: "bg-[#f4d6b0] text-[#c97d35]" },
 };
 
 export function StatusBadge({ status }: { status: ServiceStatus }) {
