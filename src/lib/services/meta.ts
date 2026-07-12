@@ -18,4 +18,12 @@ export const SERVICE_META: Record<ServiceId, ServiceMeta> = {
     notes:
       "Organic/health-food importer (Shopify storefront); catalog leans toward pantry staples, nut butters, baking substitutes.",
   },
+  halalfoodjp: {
+    id: "halalfoodjp",
+    name: "Halal Food Japan",
+    kind: "data",
+    homepage: "https://halalfoodjp.com",
+    deliveryArea: "Ships nationwide within Japan",
+    notes: "Halal-certified grocery importer (WooCommerce storefront).",
+  },
 };
