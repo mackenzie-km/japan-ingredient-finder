@@ -6,7 +6,7 @@ export default function Home() {
       <div className="flex flex-col flex-1 items-center font-sans">
         <main className="flex flex-1 w-full max-w-5xl flex-col items-center gap-6 py-10 px-6">
           <h1 className="font-script text-[56px] font-normal leading-[1.2] text-center">
-            🇯🇵 Ingredient Finder
+            🇯🇵 Foreign Ingredient Finder
           </h1>
 
           <div className="w-full rounded-[24px] bg-white border border-[#e5e5e5] shadow-[0_20px_40px_rgba(0,0,0,0.06)] px-6 pt-8 pb-8 sm:px-10 flex flex-col items-center gap-4">
