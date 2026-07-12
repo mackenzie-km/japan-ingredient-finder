@@ -1,36 +1,49 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Japan Ingredient Finder
 
-## Getting Started
+Search an imported/foreign grocery ingredient or brand and see which Japan-based import/delivery services carry it, with real prices and stock status where available.
 
-First, run the development server:
+Built for international students and staff in Tokyo who need to find foreign ingredients — a recurring pain point made worse by Wolt's full exit from the Japanese market (March 2026).
+
+## Running it locally
 
 ```bash
+npm install
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open http://localhost:3000 and search an ingredient (e.g. "peanut butter", "curry", "halal chicken", "matcha").
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Running the tests
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+```bash
+npm run test        # run once
+npm run test:watch  # watch mode
+```
 
-## Learn More
+## What it does
 
-To learn more about Next.js, take a look at the following resources:
+Type a query into the search bar. The app queries up to 8 Japan import/grocery services in parallel and shows what each one has, grouped by service:
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+| Service | What you'll see |
+|---|---|
+| The Meat Guy | Real products, prices, stock — pulled live from their storefront |
+| Halal Food Japan | Real products, prices, stock — pulled live from their storefront |
+| Tengu Natural Foods | Real products, prices, stock — pulled live from their storefront |
+| National Azabu | Real products, prices, stock — pulled live from their storefront |
+| Kaldi Coffee Farm | Real products, prices, stock — pulled live from their storefront |
+| Amazon Fresh | A link to check their own search directly (Tokyo/Kanagawa/Chiba/parts of Saitama only) |
+| Amazon.co.jp | A link to check their own search directly |
+| Uber Eats | A link to their Japan homepage (no direct query link is possible — availability is area/store-dependent) |
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+The first 5 are queried live on every search. The last 3 don't have accessible search APIs, so instead of showing stale or fabricated data, they link straight to the real search on that service.
 
-## Deploy on Vercel
+## If something breaks
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+These are live requests to real third-party websites, not a fixed dataset — if a service redesigns their site, that one card may start showing "Temporarily unavailable" instead of crashing the whole search. That's expected behavior, not a bug: every other card still works normally. See `ARCHITECTURE.md` for why it's built this way.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+If a specific service starts failing consistently, the fix is almost always in `src/lib/services/adapters/<service>.ts` or its paired `parsers/<service>.parser.ts` — the site probably changed its HTML/URL structure and the selectors need updating.
+
+## For next year's team
+
+- No accounts, API keys, or database needed — just `npm install && npm run dev`.
+- If you want to add a new service, look at `src/lib/services/adapters/` for an example that matches its platform (Shopify, WooCommerce, or a custom site needing HTML parsing) and register it in `src/lib/services/registry.ts`.
