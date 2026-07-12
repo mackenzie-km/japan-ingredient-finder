@@ -26,17 +26,17 @@ Type a query into the search bar. The app queries up to 9 Japan import/grocery s
 
 | Service | What you'll see |
 |---|---|
-| The Meat Guy | Real products, prices, stock — pulled live from their storefront |
+| Kaldi Coffee Farm | Real products, prices, stock — pulled live from their storefront |
 | Halal Food Japan | Real products, prices, stock — pulled live from their storefront |
 | Tengu Natural Foods | Real products, prices, stock — pulled live from their storefront |
 | National Azabu | Real products, prices, stock — pulled live from their storefront |
-| Kaldi Coffee Farm | Real products, prices, stock — pulled live from their storefront |
+| The Meat Guy | Real products, prices, stock — pulled live from their storefront |
 | iHerb | A link to check their own search directly (blocks automated requests with bot detection) |
-| Amazon Fresh | A link to check their own search directly (Tokyo/Kanagawa/Chiba/parts of Saitama only) |
-| Amazon.co.jp | A link to check their own search directly |
-| Uber Eats | A link to their Japan homepage (no direct query link is possible — availability is area/store-dependent) |
+| Amazon Fresh | A link to check their own search directly (Tokyo/Kanagawa/Chiba/parts of Saitama only; blocks automated requests) |
+| Amazon.co.jp | A link to check their own search directly (blocks automated requests) |
+| Uber Eats | A link to their Japan homepage (no direct query link is possible — availability is area/store-dependent; blocks automated requests) |
 
-The first 5 are queried live on every search. The last 4 don't have an accessible, unblocked search surface, so instead of showing stale or fabricated data, they link straight to the real search on that service.
+The first 5 are queried live on every search. The last 4 don't have an accessible, unblocked search surface — Amazon and Uber Eats actively block automated requests (confirmed via direct testing: Amazon's robots.txt disallows Claude's own crawlers by name, and their Conditions of Use explicitly prohibit robots/scrapers; Uber Eats returns a hard Cloudflare challenge), and iHerb returns HTTP 403 to every non-browser request. Rather than evade those blocks or show stale/fabricated data, those 4 link straight to the real search on that service.
 
 ## If something breaks
 
