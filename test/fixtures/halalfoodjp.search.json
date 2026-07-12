@@ -1,0 +1,20 @@
+[
+  {
+    "name": "Puffed Rice 200g (Muri)",
+    "permalink": "https://halalfoodjp.com/product/puffed-rice-200g-muri/",
+    "sku": "PFDS_0004-1",
+    "is_in_stock": true,
+    "prices": { "price": "35000", "currency_minor_unit": 2 },
+    "images": [{ "src": "https://halalfoodjp.com/wp-content/uploads/rice.jpg" }],
+    "tags": [{ "name": "Halal" }, { "name": "Ramadan" }]
+  },
+  {
+    "name": "Basmati Rice 1kg",
+    "permalink": "https://halalfoodjp.com/product/basmati-rice-1kg/",
+    "sku": "",
+    "is_in_stock": false,
+    "prices": { "price": "90000", "currency_minor_unit": 2 },
+    "images": [],
+    "tags": []
+  }
+]

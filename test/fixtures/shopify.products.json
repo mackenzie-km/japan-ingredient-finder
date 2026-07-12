@@ -1,0 +1,22 @@
+{
+  "products": [
+    {
+      "title": "Grass-Fed Beef Tenderized Steaks (500g)",
+      "handle": "b007a",
+      "vendor": "The Meat Guy",
+      "variants": [
+        { "price": "2390.00", "available": true, "sku": "B007a" }
+      ],
+      "images": [{ "src": "https://cdn.shopify.com/example/beef.jpg" }]
+    },
+    {
+      "title": "Wild Boar Shoulder Loin Slices 200g",
+      "handle": "boar-200",
+      "vendor": "The Meat Guy",
+      "variants": [
+        { "price": "1500.00", "available": false, "sku": "BOAR200" }
+      ],
+      "images": []
+    }
+  ]
+}

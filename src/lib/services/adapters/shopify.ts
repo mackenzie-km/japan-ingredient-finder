@@ -32,7 +32,14 @@ async function fetchCatalog(domain: string, localePrefix: string): Promise<Shopi
     const res = await fetchWithTimeout(
       `https://${domain}${localePrefix}/products.json?limit=250&page=${page}`,
     );
-    if (!res.ok) break;
+    if (!res.ok) {
+      // A failed first page means we couldn't check the catalog at all —
+      // that must surface as an error/unavailable status, not a silent
+      // "empty" (no results) which would misrepresent "we don't know" as
+      // "we checked and there's nothing".
+      if (page === 1) throw new Error(`Shopify catalog fetch failed: HTTP ${res.status}`);
+      break;
+    }
     const data = (await res.json()) as ShopifyProductsResponse;
     products.push(...data.products);
     if (data.products.length < 250) break;
