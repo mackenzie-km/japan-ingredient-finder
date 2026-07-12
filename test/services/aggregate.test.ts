@@ -31,6 +31,26 @@ function throwingAdapter(id: string): ServiceAdapter {
   return { meta, search: vi.fn().mockRejectedValue(new Error("boom")) };
 }
 
+function adapterWithProducts(id: string, count: number): ServiceAdapter {
+  const meta = makeMeta(id);
+  const products = Array.from({ length: count }, (_, i) => ({
+    name: `product-${i}`,
+    priceYen: 100,
+    priceDisplay: "¥100",
+    url: `https://example.com/${i}`,
+    inStock: true,
+  }));
+  const search = vi.fn().mockResolvedValue({
+    service: meta,
+    status: "ok" as const,
+    query: "x",
+    products,
+    fetchedAt: new Date().toISOString(),
+    durationMs: 1,
+  });
+  return { meta, search };
+}
+
 describe("searchAllServices", () => {
   beforeEach(() => {
     vi.useRealTimers();
@@ -70,5 +90,18 @@ describe("searchAllServices", () => {
     await searchAllServices(`distinct-2-${Math.random()}`, adapters);
 
     expect(adapter.search).toHaveBeenCalledTimes(2);
+  });
+
+  it("caps each service's products at 20, without changing its status", async () => {
+    const adapters = [adapterWithProducts("huge", 137)];
+    const response = await searchAllServices(`unique-query-${Math.random()}`, adapters);
+    expect(response.results[0].products).toHaveLength(20);
+    expect(response.results[0].status).toBe("ok");
+  });
+
+  it("does not pad services with fewer matches than the cap", async () => {
+    const adapters = [adapterWithProducts("small", 3)];
+    const response = await searchAllServices(`unique-query-${Math.random()}`, adapters);
+    expect(response.results[0].products).toHaveLength(3);
   });
 });

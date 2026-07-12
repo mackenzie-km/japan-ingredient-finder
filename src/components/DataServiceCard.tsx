@@ -20,7 +20,7 @@ export function DataServiceCard({ result }: { result: ServiceSearchResult }) {
       {status === "ok" && (
         <ul className="flex flex-col gap-2">
           {products.map((p) => (
-            <li key={p.url} className="flex items-center gap-3 text-sm">
+            <li key={p.sku ?? p.url} className="flex items-center gap-3 text-sm">
               {p.imageUrl && (
                 // eslint-disable-next-line @next/next/no-img-element
                 <img src={p.imageUrl} alt="" className="h-10 w-10 rounded-lg object-cover" />

@@ -4,6 +4,7 @@ export type ServiceId =
   | "tengunaturalfoods"
   | "nationalazabu"
   | "kaldi"
+  | "asiasuperstore"
   | "iherb"
   | "amazonfresh"
   | "amazonjp"

@@ -1,5 +1,6 @@
 import { amazonFreshAdapter } from "@/lib/services/adapters/amazonfresh";
 import { amazonJpAdapter } from "@/lib/services/adapters/amazonjp";
+import { asiaSuperstoreAdapter } from "@/lib/services/adapters/asiasuperstore";
 import { halalFoodJpAdapter } from "@/lib/services/adapters/halalfoodjp";
 import { iherbAdapter } from "@/lib/services/adapters/iherb";
 import { kaldiAdapter } from "@/lib/services/adapters/kaldi";
@@ -15,6 +16,7 @@ export const serviceAdapters: ServiceAdapter[] = [
   nationalAzabuAdapter,
   tenguNaturalFoodsAdapter,
   halalFoodJpAdapter,
+  asiaSuperstoreAdapter,
   meatGuyAdapter,
   iherbAdapter,
   amazonFreshAdapter,

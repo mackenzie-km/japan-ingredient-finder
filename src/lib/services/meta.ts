@@ -41,6 +41,14 @@ export const SERVICE_META: Record<ServiceId, ServiceMeta> = {
     deliveryArea: "Ships nationwide within Japan",
     deliveryFee: "¥880, free over ¥7,000 (room-temperature items)",
   },
+  asiasuperstore: {
+    id: "asiasuperstore",
+    name: "Asia Superstore",
+    kind: "data",
+    homepage: "https://asia-superstore.com/en/shopin",
+    deliveryArea: "Ships nationwide within Japan",
+    deliveryFee: "¥762–4,612 by weight/region (+¥980 frozen surcharge); no free-shipping threshold",
+  },
   iherb: {
     id: "iherb",
     name: "iHerb",
