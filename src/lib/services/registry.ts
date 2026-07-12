@@ -1,6 +1,7 @@
 import { amazonFreshAdapter } from "@/lib/services/adapters/amazonfresh";
 import { amazonJpAdapter } from "@/lib/services/adapters/amazonjp";
 import { halalFoodJpAdapter } from "@/lib/services/adapters/halalfoodjp";
+import { iherbAdapter } from "@/lib/services/adapters/iherb";
 import { kaldiAdapter } from "@/lib/services/adapters/kaldi";
 import { meatGuyAdapter } from "@/lib/services/adapters/meatguy";
 import { nationalAzabuAdapter } from "@/lib/services/adapters/nationalazabu";
@@ -10,11 +11,12 @@ import type { ServiceAdapter } from "@/lib/services/types";
 
 // Fixed order = display order (data sources first, then link-outs).
 export const serviceAdapters: ServiceAdapter[] = [
-  meatGuyAdapter,
-  halalFoodJpAdapter,
-  tenguNaturalFoodsAdapter,
-  nationalAzabuAdapter,
   kaldiAdapter,
+  nationalAzabuAdapter,
+  tenguNaturalFoodsAdapter,
+  halalFoodJpAdapter,
+  meatGuyAdapter,
+  iherbAdapter,
   amazonFreshAdapter,
   amazonJpAdapter,
   uberEatsAdapter,

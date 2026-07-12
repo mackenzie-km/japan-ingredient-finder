@@ -43,6 +43,15 @@ export const SERVICE_META: Record<ServiceId, ServiceMeta> = {
     notes:
       "General imported-grocery chain; live search parsing is best-effort for this build.",
   },
+  iherb: {
+    id: "iherb",
+    name: "iHerb",
+    kind: "link-out",
+    homepage: "https://jp.iherb.com",
+    deliveryArea: "Ships nationwide within Japan",
+    notes:
+      "Blocks automated (non-browser) requests with bot detection — confirmed HTTP 403 on every server-side fetch attempt. Link-out only.",
+  },
   amazonfresh: {
     id: "amazonfresh",
     name: "Amazon Fresh",

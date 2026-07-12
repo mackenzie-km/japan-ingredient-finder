@@ -22,7 +22,7 @@ npm run test:watch  # watch mode
 
 ## What it does
 
-Type a query into the search bar. The app queries up to 8 Japan import/grocery services in parallel and shows what each one has, grouped by service:
+Type a query into the search bar. The app queries up to 9 Japan import/grocery services in parallel and shows what each one has, grouped by service:
 
 | Service | What you'll see |
 |---|---|
@@ -31,11 +31,12 @@ Type a query into the search bar. The app queries up to 8 Japan import/grocery s
 | Tengu Natural Foods | Real products, prices, stock — pulled live from their storefront |
 | National Azabu | Real products, prices, stock — pulled live from their storefront |
 | Kaldi Coffee Farm | Real products, prices, stock — pulled live from their storefront |
+| iHerb | A link to check their own search directly (blocks automated requests with bot detection) |
 | Amazon Fresh | A link to check their own search directly (Tokyo/Kanagawa/Chiba/parts of Saitama only) |
 | Amazon.co.jp | A link to check their own search directly |
 | Uber Eats | A link to their Japan homepage (no direct query link is possible — availability is area/store-dependent) |
 
-The first 5 are queried live on every search. The last 3 don't have accessible search APIs, so instead of showing stale or fabricated data, they link straight to the real search on that service.
+The first 5 are queried live on every search. The last 4 don't have an accessible, unblocked search surface, so instead of showing stale or fabricated data, they link straight to the real search on that service.
 
 ## If something breaks
 

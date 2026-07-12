@@ -4,7 +4,7 @@ This doc explains the design decisions worth being able to speak to — not what
 
 ## The core problem: aggregating sources with wildly different reliability
 
-This is a "Vetcove for groceries" problem: pull together data from suppliers who never agreed on a common format, weren't built to be aggregated, and vary enormously in how much you can trust them to answer at all. Concretely, of 8 services shown, 5 answer live and 3 don't expose any queryable data — those 3 get an honest link-out instead of fabricated or stale numbers.
+This is a "Vetcove for groceries" problem: pull together data from suppliers who never agreed on a common format, weren't built to be aggregated, and vary enormously in how much you can trust them to answer at all. Concretely, of 9 services shown, 5 answer live and 4 don't expose any queryable data — those 4 get an honest link-out instead of fabricated or stale numbers.
 
 The fix isn't "write 8 special cases in the UI." It's one contract every source implements, however it gets its data:
 
@@ -27,7 +27,9 @@ The original brief assumed a flat curated dataset. Hands-on research (checking e
 
 - **Live JSON** (The Meat Guy, Halal Food Japan) — real, documented-shape APIs (Shopify's `/products.json`, WooCommerce's Store API), no auth needed.
 - **Live HTML** (Tengu Natural Foods, National Azabu, Kaldi) — no JSON endpoint, but a plain unauthenticated GET request returns server-rendered HTML with real product data. Parsed with Cheerio — never a headless browser, never JS execution, never bot-detection evasion.
-- **Link-out only** (Amazon Fresh, Amazon.co.jp, Uber Eats) — no accessible search surface at all (Amazon's PA-API requires prior sales history to get approved; Uber Eats requires partner OAuth). Rather than fabricate data or silently omit these, they get a real, working link to check the source directly — the same pattern Southwest Airlines used for competitor fares it wouldn't display inline.
+- **Link-out only** (iHerb, Amazon Fresh, Amazon.co.jp, Uber Eats) — no accessible search surface at all, confirmed by direct testing rather than assumption. Rather than fabricate data or silently omit these, they get a real, working link to check the source directly — the same pattern Southwest Airlines used for competitor fares it wouldn't display inline.
+
+**iHerb** was originally planned as a live-HTML source. A real browser gets results; every server-side fetch got HTTP 403 — genuine bot detection, not a fixable bug. Rather than ship a permanently-broken "unavailable" card, it moved to the link-out tier alongside Amazon and Uber Eats — the same "just link to the real search" pattern, applied once it was clear that's what this source actually is.
 
 **Tengu Natural Foods** looked at first like a second easy Shopify-JSON win (same platform as The Meat Guy). It wasn't: its `/products.json` feed is missing real, purchasable products (its entire "Organic Peanut Butter" line, confirmed by direct comparison) that the site's own on-site search finds. A nice-looking JSON API isn't automatically the complete or correct one — its own search endpoint was the accurate source, so that's what shipped.
 
