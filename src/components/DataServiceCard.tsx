@@ -4,7 +4,7 @@ import type { ServiceSearchResult } from "@/lib/services/types";
 export function DataServiceCard({ result }: { result: ServiceSearchResult }) {
   const { service, status, products, error } = result;
   return (
-    <div className="rounded-lg border border-gray-200 p-4 flex flex-col gap-3">
+    <div className="rounded-lg border border-gray-200 dark:border-gray-700 bg-white dark:bg-zinc-900 p-4 flex flex-col gap-3">
       <div className="flex items-center justify-between gap-2">
         <a
           href={service.homepage}
@@ -33,7 +33,7 @@ export function DataServiceCard({ result }: { result: ServiceSearchResult }) {
               <div className="text-right whitespace-nowrap">
                 {p.priceDisplay && <div>{p.priceDisplay}</div>}
                 {p.inStock === false && (
-                  <div className="text-xs text-red-600">Out of stock</div>
+                  <div className="text-xs text-red-600 dark:text-red-400">Out of stock</div>
                 )}
               </div>
             </li>
@@ -42,16 +42,16 @@ export function DataServiceCard({ result }: { result: ServiceSearchResult }) {
       )}
 
       {status === "empty" && (
-        <p className="text-sm text-gray-500">No products matched this search.</p>
+        <p className="text-sm text-gray-500 dark:text-gray-400">No products matched this search.</p>
       )}
 
       {(status === "error" || status === "unavailable") && (
-        <p className="text-sm text-gray-500">
+        <p className="text-sm text-gray-500 dark:text-gray-400">
           {error ?? "This source could not be reached right now."}
         </p>
       )}
 
-      <p className="text-xs text-gray-400 mt-auto">
+      <p className="text-xs text-gray-400 dark:text-gray-500 mt-auto">
         {service.deliveryArea} · {service.deliveryFee}
       </p>
     </div>
