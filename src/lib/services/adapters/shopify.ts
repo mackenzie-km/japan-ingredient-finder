@@ -24,13 +24,13 @@ interface ShopifyProductsResponse {
   products: ShopifyProduct[];
 }
 
-async function fetchCatalog(domain: string): Promise<ShopifyProduct[]> {
+async function fetchCatalog(domain: string, localePrefix: string): Promise<ShopifyProduct[]> {
   const products: ShopifyProduct[] = [];
   // Cap at 2 pages (~500 products) rather than fully paginating — a
   // documented tradeoff, not full catalog coverage.
   for (const page of [1, 2]) {
     const res = await fetchWithTimeout(
-      `https://${domain}/products.json?limit=250&page=${page}`,
+      `https://${domain}${localePrefix}/products.json?limit=250&page=${page}`,
     );
     if (!res.ok) break;
     const data = (await res.json()) as ShopifyProductsResponse;
@@ -46,14 +46,18 @@ function cheapestVariant(variants: ShopifyVariant[]): ShopifyVariant | undefined
     .sort((a, b) => Number(a.price) - Number(b.price))[0];
 }
 
-function toProductResult(domain: string, product: ShopifyProduct): ProductResult {
+function toProductResult(
+  domain: string,
+  localePrefix: string,
+  product: ShopifyProduct,
+): ProductResult {
   const variant = cheapestVariant(product.variants);
   const priceYen = variant ? Number(variant.price) : null;
   return {
     name: product.title,
     priceYen,
     priceDisplay: priceYen !== null ? `¥${priceYen.toLocaleString("en-US")}` : null,
-    url: `https://${domain}/products/${product.handle}`,
+    url: `https://${domain}${localePrefix}/products/${product.handle}`,
     imageUrl: product.images[0]?.src,
     inStock: variant ? variant.available : null,
     sku: variant?.sku ?? undefined,
@@ -63,6 +67,10 @@ function toProductResult(domain: string, product: ShopifyProduct): ProductResult
 export function createShopifyJsonAdapter(
   meta: ServiceMeta,
   domain: string,
+  // Some Shopify storefronts default to a Japanese-only catalog with an
+  // English catalog available under a locale path (e.g. "/en") — pass
+  // that here so titles/search match English ingredient queries.
+  localePrefix = "",
 ): ServiceAdapter {
   return {
     meta,
@@ -74,7 +82,7 @@ export function createShopifyJsonAdapter(
         fetchedAt: new Date().toISOString(),
       };
       try {
-        const catalog = await fetchCatalog(domain);
+        const catalog = await fetchCatalog(domain, localePrefix);
         const q = query.trim().toLowerCase();
         const matches = catalog.filter(
           (p) =>
@@ -84,7 +92,7 @@ export function createShopifyJsonAdapter(
         return {
           ...base,
           status: matches.length > 0 ? "ok" : "empty",
-          products: matches.map((p) => toProductResult(domain, p)),
+          products: matches.map((p) => toProductResult(domain, localePrefix, p)),
           durationMs: Date.now() - start,
         };
       } catch (err) {
