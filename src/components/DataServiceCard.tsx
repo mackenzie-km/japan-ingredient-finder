@@ -5,7 +5,7 @@ export function DataServiceCard({ result }: { result: ServiceSearchResult }) {
   const { service, status, products, error } = result;
   return (
     <div className="rounded-[24px] border border-[#e5e5e5] bg-white shadow-[0_20px_40px_rgba(0,0,0,0.06)] p-4 flex flex-col gap-3">
-      <div className="flex items-center justify-between gap-2">
+      <div className="flex flex-col items-center gap-2 text-center sm:flex-row sm:items-center sm:justify-between sm:text-left">
         <a
           href={service.homepage}
           target="_blank"

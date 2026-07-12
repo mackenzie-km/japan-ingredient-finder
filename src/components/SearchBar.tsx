@@ -17,7 +17,7 @@ export function SearchBar({
         e.preventDefault();
         if (value.trim()) onSearch(value.trim());
       }}
-      className="flex gap-2"
+      className="flex flex-col sm:flex-row gap-2"
     >
       <input
         type="text"
@@ -29,7 +29,7 @@ export function SearchBar({
       <button
         type="submit"
         disabled={loading || !value.trim()}
-        className="rounded-full bg-gradient-to-r from-[#c97d35] to-[#d68c45] text-white font-semibold text-base px-8 py-4 transition-all duration-150 ease-[cubic-bezier(0.4,0,0.2,1)] hover:opacity-90 hover:-translate-y-0.5 hover:shadow-[0_8px_20px_rgba(214,140,69,0.3)] disabled:bg-[#f4d6b0] disabled:text-[#c8a06a] disabled:opacity-100 disabled:translate-y-0 disabled:shadow-none disabled:cursor-not-allowed"
+        className="w-full sm:w-auto rounded-full bg-gradient-to-r from-[#c97d35] to-[#d68c45] text-white font-semibold text-base px-8 py-4 transition-all duration-150 ease-[cubic-bezier(0.4,0,0.2,1)] hover:opacity-90 hover:-translate-y-0.5 hover:shadow-[0_8px_20px_rgba(214,140,69,0.3)] disabled:opacity-50 disabled:translate-y-0 disabled:shadow-none disabled:cursor-not-allowed disabled:hover:opacity-50"
       >
         {loading ? "Searching…" : "Search"}
       </button>
