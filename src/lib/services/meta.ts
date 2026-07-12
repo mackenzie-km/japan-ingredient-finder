@@ -34,6 +34,15 @@ export const SERVICE_META: Record<ServiceId, ServiceMeta> = {
     deliveryArea: "Ships nationwide within Japan; based in Tokyo (Azabu)",
     notes: "Long-established Tokyo import grocer.",
   },
+  kaldi: {
+    id: "kaldi",
+    name: "Kaldi Coffee Farm",
+    kind: "data",
+    homepage: "https://www.kaldi.co.jp",
+    deliveryArea: "Nationwide — large physical retail chain plus online store",
+    notes:
+      "General imported-grocery chain; live search parsing is best-effort for this build.",
+  },
   amazonfresh: {
     id: "amazonfresh",
     name: "Amazon Fresh",
