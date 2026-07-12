@@ -3,8 +3,8 @@ import type { ServiceSearchResult } from "@/lib/services/types";
 export function LinkOutServiceCard({ result }: { result: ServiceSearchResult }) {
   const { service, linkOutUrl } = result;
   return (
-    <div className="rounded-lg border border-dashed border-gray-300 dark:border-gray-600 bg-gray-50 dark:bg-zinc-800/60 p-4 flex flex-col gap-3">
-      <div className="font-semibold">{service.name}</div>
+    <div className="rounded-2xl border border-dashed border-amber-300 dark:border-amber-800/50 bg-amber-50/40 dark:bg-black/20 shadow-sm p-4 flex flex-col gap-3">
+      <div className="font-semibold text-zinc-900 dark:text-zinc-50">{service.name}</div>
       <p className="text-xs text-gray-500 dark:text-gray-400">
         {service.deliveryArea} · {service.deliveryFee}
       </p>
@@ -12,7 +12,7 @@ export function LinkOutServiceCard({ result }: { result: ServiceSearchResult }) 
         href={linkOutUrl ?? service.homepage}
         target="_blank"
         rel="noreferrer"
-        className="mt-auto inline-block rounded bg-gray-800 dark:bg-gray-100 text-white dark:text-gray-900 text-sm px-3 py-1.5 text-center hover:bg-gray-700 dark:hover:bg-gray-300"
+        className="mt-auto inline-block rounded-full bg-amber-700 text-white text-sm px-4 py-1.5 text-center hover:bg-amber-800 transition-colors"
       >
         Check pricing directly →
       </a>
