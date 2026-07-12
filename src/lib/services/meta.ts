@@ -34,4 +34,29 @@ export const SERVICE_META: Record<ServiceId, ServiceMeta> = {
     deliveryArea: "Ships nationwide within Japan; based in Tokyo (Azabu)",
     notes: "Long-established Tokyo import grocer.",
   },
+  amazonfresh: {
+    id: "amazonfresh",
+    name: "Amazon Fresh",
+    kind: "link-out",
+    homepage: "https://www.amazon.co.jp",
+    deliveryArea: "Tokyo, Kanagawa, Chiba, and parts of Saitama only",
+    notes:
+      "Grocery delivery service; pricing not shown here, link out to check directly.",
+  },
+  amazonjp: {
+    id: "amazonjp",
+    name: "Amazon.co.jp",
+    kind: "link-out",
+    homepage: "https://www.amazon.co.jp",
+    deliveryArea: "Ships nationwide within Japan",
+    notes: "General marketplace; imported goods often sold by third-party sellers.",
+  },
+  ubereats: {
+    id: "ubereats",
+    name: "Uber Eats",
+    kind: "link-out",
+    homepage: "https://www.ubereats.com/jp",
+    deliveryArea: "Varies by store/area availability",
+    notes: "Requires store/area context; no query deep-link available, links to JP homepage.",
+  },
 };
